@@ -1,0 +1,18 @@
+<ion-popover-view  >
+  <ion-header-bar class="popover-heading">
+    <h1 class="title" ng-bind="popoverItems.title"></h1>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list class="popover-item-list">
+      <div ng-if="popoverItems.items.length===0" class="no-popover-items">
+        There are no items currently available.
+      </div>
+      <a ng-class="isNew(item)" class="item item-icon-right" item="item" ng-click="openNotificationDetails(item)"
+         ng-repeat="item in ::popoverItems.items track by item.trackedActionId">
+        <div class="row item-text-wrap"><b ng-bind="::item.popoverTitle">:</b></div>
+        <div class="row item-text-wrap" ng-bind="::item.popoverText">!</div>
+        <i class="icon ion-plus icon-accessory"></i>
+      </a>
+    </ion-list>
+  </ion-content>
+</ion-popover-view>
